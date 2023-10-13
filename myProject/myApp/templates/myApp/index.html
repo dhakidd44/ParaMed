@@ -1,61 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liste des Prescriptions</title>
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'myapp/styles.css' %}">
-    <!-- Inclure Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <head>
+        <meta charset="UTF-8">
+        {% load static %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Section Prescriptions</title>
+        <link rel="icon" href="https://www.flaticon.com/free-icon/pharmacy_898681.ico" type="image/x-icon">
+        <link rel="stylesheet" type="text/css" href="{% static 'myapp/styles.css' %}">
+        <!-- Inclure Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
+
 <body>
     <header>
         <!-- Barre de navigation Bootstrap -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Votre Logo</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-                </ul>
+        <nav class="navbar">
+            <a href="#">Accueil</a>
+            <a href="#">Se connecter / S'inscrire</a>
+            <div class="dropdown">
+                <button class="dropbtn">Menu <i class="fa fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="#">Compte</a>
+                    <a href="#">Paramètres</a>
+                    <a href="#">Service à la clientèle</a>
+                    <a href="#">Aide</a>
+                </div>
             </div>
+            <a href="#">Contact-Us</a>
         </nav>
     </header>
     <main>
         <div class="container">
             <h1>Liste des Prescriptions</h1>
-            <ul class="list-group">
-                {% if prescriptions %}
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Rechercher par nom et prenom patient...">
+                <button id="search-button">Rechercher</button>
+            </div>
+            <div class="prescriptions-section">
+                <ul class="list-group">
+                    {% if prescriptions %}
                     {% for prescription in prescriptions %}
-                        <li class="list-group-item">
-                            <h2>Prescription pour {{ prescription.patient }}</h2>
-                            <p>Date de Prescription : {{ prescription.prescription_date }}</p>
-                            <p>Médecin : {{ prescription.doctor_name }}</p>
-                            <p>Médication : {{ prescription.medication }}</p>
-                            <p>Instructions : {{ prescription.instructions }}</p>
-                        </li>
+                    <li class="list-group-item">
+                        <h2>Prescription pour {{ prescription.patient }}</h2>
+                        <p>Date de Prescription : {{ prescription.prescription_date }}</p>
+                        <p>Médecin : {{ prescription.doctor_name }}</p>
+                        <p>Médication : {{ prescription.medication }}</p>
+                        <p>Instructions : {{ prescription.instructions }}</p>
+                    </li>
                     {% endfor %}
-                {% else %}
+                    {% else %}
                     <p>Aucune prescription disponible pour le moment.</p>
-                {% endif %}
-            </ul>
+                    {% endif %}
+                </ul>
+            </div>
         </div>
     </main>
     <footer>
         <!-- Pied de page Bootstrap -->
         <div class="container text-center">
-            <p>&copy; 2023 Votre Nom. Tous droits réservés.</p>
+            <p>&copy; 2023 Ernest Samuel A. Tous droits réservés.</p>
         </div>
     </footer>
 
@@ -64,4 +68,5 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
