@@ -3,9 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Liste des Prescriptions</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'myapp/styles.css' %}">
+    <!-- Inclure Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <h1>My page<h1>
+    <header>
+        <!-- Votre en-tête ici -->
+    </header>
+    <main>
+        <div class="container">
+            <h1>Liste des Prescriptions</h1>
+            <ul class="list-group">
+                {% if prescriptions %}
+                    {% for prescription in prescriptions %}
+                        <li class="list-group-item">
+                            <h2>Prescription pour {{ prescription.patient }}</h2>
+                            <p>Date de Prescription : {{ prescription.prescription_date }}</p>
+                            <p>Médecin : {{ prescription.doctor_name }}</p>
+                            <p>Médication : {{ prescription.medication }}</p>
+                            <p>Instructions : {{ prescription.instructions }}</p>
+                        </li>
+                    {% endfor %}
+                {% else %}
+                    <p>Aucune prescription disponible pour le moment.</p>
+                {% endif %}
+            </ul>
+        </div>
+    </main>
+    <footer>
+        <!-- Votre pied de page ici -->
+    </footer>
+
+    <!-- Inclure Bootstrap JS et jQuery pour le fonctionnement des composants Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
