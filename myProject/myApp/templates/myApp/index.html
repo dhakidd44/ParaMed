@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section Prescriptions</title>
+    <link rel="icon" href="https://www.flaticon.com/free-icon/pharmacy_898681.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'myapp/styles.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="#">Accueil</a>
+            <a href="#">Se connecter / S'inscrire</a>
+            <div class="dropdown">
+                <button class="dropbtn">Menu <i class="fa fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="#">Compte</a>
+                    <a href="#">Paramètres</a>
+                    <a href="#">Service à la clientèle</a>
+                    <a href="#">Aide</a>
+                </div>
+            </div>
+            <a href="#">Contact-Us</a>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h1>Liste des Prescriptions</h1>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Rechercher patient par nom et prenom ...">
+                <button id="search-button">Rechercher</button>
+            </div>
+            <div class="prescriptions-section">
+                <ul class="list-group">
+                    {% if prescriptions %}
+                    {% for prescription in prescriptions %}
+                    <li class="list-group-item">
+                        <h2>Prescription pour {{ prescription.patient }}</h2>
+                        <p>Date de Prescription : {{ prescription.prescription_date }}</p>
+                        <p>Médecin : {{ prescription.doctor_name }}</p>
+                        <p>Médication : {{ prescription.medication }}</p>
+                        <p>Instructions : {{ prescription.instructions }}</p>
+                    </li>
+                    {% endfor %}
+                    {% else %}
+                    <p>Aucune prescription disponible pour le moment.</p>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2023 Ernest Samuel A. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
