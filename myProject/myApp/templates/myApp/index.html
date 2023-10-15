@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        {% load static %}
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Section Prescriptions</title>
-        <link rel="icon" href="https://www.flaticon.com/free-icon/pharmacy_898681.ico" type="image/x-icon">
-        <link rel="stylesheet" type="text/css" href="{% static 'myapp/styles.css' %}">
-        <!-- Inclure Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section Prescriptions</title>
+    <link rel="icon" href="https://www.flaticon.com/free-icon/pharmacy_898681.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'myapp/styles.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 
 <body>
+
     <header>
-        <!-- Barre de navigation Bootstrap -->
         <nav class="navbar">
             <a href="#">Accueil</a>
             <a href="#">Se connecter / S'inscrire</a>
@@ -34,7 +34,7 @@
         <div class="container">
             <h1>Liste des Prescriptions</h1>
             <div class="search-bar">
-                <input type="text" id="search-input" placeholder="Rechercher par nom et prenom patient...">
+                <input type="text" id="search-input" placeholder="Rechercher patient par nom et prenom ...">
                 <button id="search-button">Rechercher</button>
             </div>
             <div class="prescriptions-section">
@@ -57,13 +57,11 @@
         </div>
     </main>
     <footer>
-        <!-- Pied de page Bootstrap -->
         <div class="container text-center">
             <p>&copy; 2023 Ernest Samuel A. Tous droits réservés.</p>
         </div>
     </footer>
 
-    <!-- Inclure Bootstrap JS et jQuery pour le fonctionnement des composants Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
